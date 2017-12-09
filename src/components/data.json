@@ -14,7 +14,7 @@
             "picture": {
                 "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fjackie.jpg?alt=media&token=c4ad2626-02a7-402d-bf0c-29310b611a24",
                 "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            },
+            }
         },
         "09b516f2-6b5d-4764-ae5b-32e41fa3cb08": {
             "name": "Maggie Cross",
@@ -22,7 +22,7 @@
             "picture": {
                 "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fmaggie.png?alt=media&token=21fe02b4-445a-47d3-9f1a-520cb337abac",
                 "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAJmwx////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            },
+            }
         }
     },
     "posts": [
