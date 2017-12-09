@@ -4,9 +4,7 @@ import * as React from "react";
 import {View, StyleSheet, Dimensions, FlatList, TouchableOpacity, SafeAreaView} from "react-native";
 import {Feather as Icon} from "@expo/vector-icons";
 
-import FirstPost from "./FirstPost";
-
-import {Text, SmartImage, APIStore, Avatar, NavigationHelpers, Theme, Post} from "../../components";
+import {Text, SmartImage, APIStore, Avatar, NavigationHelpers, Theme, Post, FirstPost} from "../../components";
 import type {ScreenProps} from "../../components/Types";
 
 export default class Profile extends React.Component<ScreenProps<>> {
