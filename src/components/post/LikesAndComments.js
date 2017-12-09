@@ -14,7 +14,7 @@ import type {NavigationProps} from "../Types";
 type LikesAndCommentsProps = NavigationProps<> & {
     id: string,
     comments: number,
-    likes: number,
+    likes: string[],
     color: string
 };
 
@@ -27,11 +27,11 @@ export default class LikesAndComments extends React.Component<LikesAndCommentsPr
     }
 
     render(): React.Node {
-        const {comments, likes, color} = this.props;
+        const {comments, likes, color, id} = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.content}>
-                    <Likes {...{color, likes}} />
+                    <Likes post={id} {...{color, likes}} />
                     <TouchableWithoutFeedback onPress={this.goToComments}>
                         <View style={styles.comments}>
                             <Icon name="message-circle" size={18} {...{color}} />

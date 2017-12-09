@@ -17,7 +17,7 @@ export type Profile = {
 export type Post = {
     uid: string,
     id: string,
-    likes: number,
+    likes: string[],
     comments: number,
     timestamp: number,
     text: string,
@@ -49,6 +49,10 @@ export default class APIStore {
         data.posts.push(post);
     }
 
+    static post(id: string): Post {
+        return data.posts.filter(post => post.id === id)[0];
+    }
+
     static comments(post: string): Comment[] {
         if (!data.comments[post]) {
             data.comments[post] = [];
@@ -56,10 +60,22 @@ export default class APIStore {
         return _.sortBy(data.comments[post], ["timestamp"]).reverse();
     }
 
+    static like(id: string, uid: string): string[] {
+        const post = APIStore.post(id);
+        const idx = post.likes.indexOf(uid);
+        if (idx === -1) {
+            post.likes.push(uid);
+        } else {
+            post.likes.splice(idx, 1);
+        }
+        return post.likes;
+    }
+
     static addComment(post: string, comment: Comment) {
         if (!data.comments[post]) {
             data.comments[post] = [];
         }
+        APIStore.post(post).comments++;
         data.comments[post].push(comment);
     }
 }

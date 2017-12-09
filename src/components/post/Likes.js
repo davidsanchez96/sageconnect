@@ -7,14 +7,16 @@ import {Feather as Icon} from "@expo/vector-icons";
 import Odometer from "./Odometer";
 
 import {Theme} from "../Theme";
+import APIStore from "../APIStore";
 
 type LikesProps = {
     color: string,
-    likes: number
+    likes: string[],
+    post: string
 };
 
 type LikesState = {
-    liked: boolean,
+    likes: string[],
     animation: Animated.Value
 };
 
@@ -23,14 +25,17 @@ export default class Likes extends React.Component<LikesProps, LikesState> {
     counter: Odometer;
 
     componentWillMount() {
-        this.setState({ liked: false });
+        const {likes} = this.props;
+        this.setState({ likes });
     }
 
     @autobind
     toggle() {
-        const liked = !this.state.liked;
-        this.setState({ liked });
-        if (liked) {
+        const {post} = this.props;
+        const uid = APIStore.me();
+        const likes = APIStore.like(post, uid);
+        this.setState({ likes });
+        if (likes.indexOf(uid) !== -1) {
             this.counter.increment();
             const animation = new Animated.Value(0);
             this.setState({ animation });
@@ -38,7 +43,7 @@ export default class Likes extends React.Component<LikesProps, LikesState> {
                 animation,
                 {
                     toValue: 1,
-                    duration: 300,
+                    duration: 500,
                     easing: Easing.ease
                 }
             ).start();
@@ -48,8 +53,9 @@ export default class Likes extends React.Component<LikesProps, LikesState> {
     }
 
     render(): React.Node {
-        const {color, likes} = this.props;
-        const {liked, animation} = this.state;
+        const {color} = this.props;
+        const {likes, animation} = this.state;
+        const uid = APIStore.me();
         const computedStyle = [styles.icon];
         if (animation) {
             const fontSize = animation.interpolate({
@@ -58,7 +64,7 @@ export default class Likes extends React.Component<LikesProps, LikesState> {
             });
             computedStyle.push({ fontSize });
         }
-        if (liked) {
+        if (likes.indexOf(uid) !== -1) {
             computedStyle.push(styles.likedIcon);
         }
         return (
@@ -67,7 +73,7 @@ export default class Likes extends React.Component<LikesProps, LikesState> {
                     <View style={styles.iconContainer}>
                         <AnimatedIcon name="thumbs-up" color={color} style={computedStyle} />
                     </View>
-                    <Odometer ref={ref => ref ? this.counter = ref : undefined} count={likes} {...{ color }} />
+                    <Odometer ref={ref => ref ? this.counter = ref : undefined} count={likes.length} {...{ color }} />
                 </View>
             </TouchableWithoutFeedback>
         );
