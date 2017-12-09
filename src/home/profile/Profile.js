@@ -54,7 +54,11 @@ export default class Profile extends React.Component<ScreenProps<>> {
                             <Post post={item} {...{navigation}} />
                         </View>
                     )}
-                    ListEmptyComponent={<FirstPost {...{navigation}} />}
+                    ListEmptyComponent={(
+                        <View style={styles.post}>
+                            <FirstPost {...{navigation}} />
+                        </View>
+                    )}
                     ListHeaderComponent={this.renderHeader()}
                 />
             </View>
