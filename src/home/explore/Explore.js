@@ -39,7 +39,7 @@ export default class Explore extends React.Component<ScreenProps<>, ExploreState
         const {onRefresh} = this;
         const {navigation} = this.props;
         const {scrollAnimation, refreshing, posts} = this.state;
-        const profile = APIStore.profile();
+        const profile = APIStore.profile(APIStore.me());
         const opacity = scrollAnimation.interpolate({
             inputRange: [0, 60],
             outputRange: [1, 0]

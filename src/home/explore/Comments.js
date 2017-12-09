@@ -1,5 +1,6 @@
 // @flow
 import autobind from "autobind-decorator";
+import moment from "moment";
 import * as React from "react";
 import {
     StyleSheet, FlatList, KeyboardAvoidingView, TextInput, View, Platform, TouchableOpacity
@@ -29,12 +30,12 @@ export default class Comments extends React.Component<ScreenParams<{ post: strin
         const {post} = this.props.navigation.state.params;
         const {text} = this.state;
         const comments =  this.state.comments.slice();
-        const profile = APIStore.profile();
+        const uid = APIStore.me();
         const comment = {
             text,
             id: Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1),
-            name: profile.name,
-            picture: profile.picture
+            uid,
+            timestamp: parseInt(moment().format("X"), 10)
         };
         if (text.trim() === "") {
             return;
