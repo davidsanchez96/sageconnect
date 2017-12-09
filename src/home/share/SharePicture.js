@@ -65,7 +65,7 @@ export default class SharePicture extends React.Component<ScreenParams<Picture>,
             id: id(),
             uid,
             timestamp: parseInt(moment().format("X"), 10),
-            likes: 0,
+            likes: [],
             comments: 0,
             text: caption,
             picture: {

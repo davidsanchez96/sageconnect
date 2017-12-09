@@ -30,7 +30,13 @@
             "id": "24d55bd4-b66e-407f-87ba-c03d51755f0f",
             "uid": "aa94c4b3-e74d-45c3-889e-86c227d8dae3",
             "timestamp": 1510127619,
-            "likes": 18,
+            "likes": [
+                "a2428f19-266f-4f73-819d-65e11a711345",
+                "4581409a-76a1-4f70-b321-b2940b6b433a",
+                "9b4c84a1-7bc0-4397-9fce-0891576feda4",
+                "cfe4ebc5-e1a8-45ca-a1db-93faece47db2",
+                "5e07bb1b-8cf8-4a22-8501-b66594ef9027"
+            ],
             "comments": 2,
             "text": "What I love most about this crazy life is the adventure of it.",
             "picture": {
@@ -42,7 +48,11 @@
             "id": "88541578-5966-41d4-9e69-091c993611dc",
             "uid": "09b516f2-6b5d-4764-ae5b-32e41fa3cb08",
             "timestamp": 1510121619,
-            "likes": 18,
+            "likes": [
+                "a2428f19-266f-4f73-819d-65e11a711345",
+                "4581409a-76a1-4f70-b321-b2940b6b433a",
+                "9b4c84a1-7bc0-4397-9fce-0891576feda4"
+            ],
             "comments": 0,
             "text": "I think risk-taking is a great adventure. And life should be full of adventures."
         },
@@ -50,7 +60,10 @@
             "id": "8f888a1d-9ff1-48be-8961-17e87fd9e3ea",
             "uid": "aa94c4b3-e74d-45c3-889e-86c227d8dae3",
             "timestamp": 1510115619,
-            "likes": 18,
+            "likes": [
+                "a2428f19-266f-4f73-819d-65e11a711345",
+                "4581409a-76a1-4f70-b321-b2940b6b433a"
+            ],
             "comments": 0,
             "text": "Derek added 4 photos to his Adventure album",
             "picture": {

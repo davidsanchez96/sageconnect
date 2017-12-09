@@ -17,7 +17,7 @@ export type Profile = {
 export type Post = {
     uid: string,
     id: string,
-    likes: number,
+    likes: string[],
     comments: number,
     timestamp: number,
     text: string,
@@ -60,8 +60,15 @@ export default class APIStore {
         return _.sortBy(data.comments[post], ["timestamp"]).reverse();
     }
 
-    static like(post: string) {
-        APIStore.post(post).likes++;
+    static like(id: string, uid: string): string[] {
+        const post = APIStore.post(id);
+        const idx = post.likes.indexOf(uid);
+        if (idx === -1) {
+            post.likes.push(uid);
+        } else {
+            post.likes.splice(idx, 1);
+        }
+        return post.likes;
     }
 
     static addComment(post: string, comment: Comment) {
