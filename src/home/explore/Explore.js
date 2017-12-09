@@ -5,9 +5,7 @@ import moment from "moment"
 import {FlatList, StyleSheet, View, Animated, SafeAreaView, RefreshControl, Platform} from "react-native";
 import {Constants} from "expo";
 
-import Post from "./Post";
-
-import {Text, APIStore, Theme, Avatar, RefreshIndicator} from "../../components";
+import {Text, APIStore, Theme, Avatar, RefreshIndicator, Post} from "../../components";
 
 import type {ScreenProps} from "../../components/Types";
 import type {Post as PostModel} from "../../components/APIStore";
