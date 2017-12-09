@@ -4,10 +4,7 @@ import * as React from "react";
 import {View, StyleSheet, Dimensions, FlatList, TouchableOpacity, SafeAreaView} from "react-native";
 import {Feather as Icon} from "@expo/vector-icons";
 
-import Post from "../explore/Post";
-import FirstPost from "./FirstPost";
-
-import {Text, SmartImage, APIStore, Avatar, NavigationHelpers, Theme} from "../../components";
+import {Text, SmartImage, APIStore, Avatar, NavigationHelpers, Theme, Post, FirstPost} from "../../components";
 import type {ScreenProps} from "../../components/Types";
 
 export default class Profile extends React.Component<ScreenProps<>> {
@@ -57,7 +54,11 @@ export default class Profile extends React.Component<ScreenProps<>> {
                             <Post post={item} {...{navigation}} />
                         </View>
                     )}
-                    ListEmptyComponent={<FirstPost {...{navigation}} />}
+                    ListEmptyComponent={(
+                        <View style={styles.post}>
+                            <FirstPost {...{navigation}} />
+                        </View>
+                    )}
                     ListHeaderComponent={this.renderHeader()}
                 />
             </View>

@@ -5,9 +5,13 @@ import {StyleSheet, View, Dimensions, Platform} from "react-native";
 
 import LikesAndComments from "./LikesAndComments";
 
-import {Text, Avatar, Theme, SmartImage} from "../../components";
-import type {Post} from "../../components/APIStore";
-import type {NavigationProps} from "../../components/Types";
+import Text from "../Text";
+import Avatar from "../Avatar";
+import {Theme} from "../Theme";
+import SmartImage from "../SmartImage";
+
+import type {Post} from "../APIStore";
+import type {NavigationProps} from "../Types";
 
 type PostProps = NavigationProps<> & {
     post: Post

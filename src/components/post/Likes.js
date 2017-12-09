@@ -6,7 +6,7 @@ import {Feather as Icon} from "@expo/vector-icons";
 
 import Odometer from "./Odometer";
 
-import {Theme} from "../../components";
+import {Theme} from "../Theme";
 
 type LikesProps = {
     color: string

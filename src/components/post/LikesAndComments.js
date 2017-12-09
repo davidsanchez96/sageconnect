@@ -6,8 +6,11 @@ import {StyleSheet, View, TouchableWithoutFeedback} from "react-native";
 import Likes from "./Likes";
 import {Feather as Icon} from "@expo/vector-icons";
 
-import {Text, Theme, APIStore} from "../../components";
-import type {NavigationProps} from "../../components/Types";
+import Text from "../Text";
+import {Theme} from "../Theme";
+import APIStore from "../APIStore";
+
+import type {NavigationProps} from "../Types";
 
 type LikesAndCommentsProps = NavigationProps<> & {
     id: string,
