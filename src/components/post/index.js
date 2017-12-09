@@ -1,3 +1,2 @@
 // @flow
-import Post from "./Post";
-export default Post;
+export {default as default} from "./Post";
