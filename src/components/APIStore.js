@@ -49,6 +49,10 @@ export default class APIStore {
         data.posts.push(post);
     }
 
+    static post(id: string): Post {
+        return data.posts.filter(post => post.id === id)[0];
+    }
+
     static comments(post: string): Comment[] {
         if (!data.comments[post]) {
             data.comments[post] = [];
@@ -56,10 +60,15 @@ export default class APIStore {
         return _.sortBy(data.comments[post], ["timestamp"]).reverse();
     }
 
+    static like(post: string) {
+        APIStore.post(post).likes++;
+    }
+
     static addComment(post: string, comment: Comment) {
         if (!data.comments[post]) {
             data.comments[post] = [];
         }
+        APIStore.post(post).comments++;
         data.comments[post].push(comment);
     }
 }
