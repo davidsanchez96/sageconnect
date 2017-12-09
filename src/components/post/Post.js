@@ -9,6 +9,7 @@ import Text from "../Text";
 import Avatar from "../Avatar";
 import {Theme} from "../Theme";
 import SmartImage from "../SmartImage";
+import APIStore from "../APIStore";
 
 import type {Post} from "../APIStore";
 import type {NavigationProps} from "../Types";
@@ -21,6 +22,8 @@ export default class PostComp extends React.Component<PostProps> {
 
     render(): React.Node {
         const {post, navigation} = this.props;
+        const {likes, comments} = post;
+        const profile = APIStore.profile(post.uid);
         const contentStyle = [styles.content];
         const nameStyle = [styles.name];
         const textStyle = [styles.text];
@@ -45,9 +48,9 @@ export default class PostComp extends React.Component<PostProps> {
                 }
                 <View style={contentStyle}>
                     <View style={styles.header}>
-                        <Avatar {...post.profilePicture} />
+                        <Avatar {...profile.picture} />
                         <View style={styles.metadata}>
-                            <Text style={nameStyle}>{post.name}</Text>
+                            <Text style={nameStyle}>{profile.name}</Text>
                             <Text style={dateStyle}>{moment(post.timestamp, "X").fromNow()}</Text>
                         </View>
                     </View>
@@ -57,7 +60,7 @@ export default class PostComp extends React.Component<PostProps> {
                     <LikesAndComments
                         color={post.picture ? "white" : Theme.typography.color}
                         id={post.id}
-                        {...{navigation}}
+                        {...{navigation, likes, comments}}
                     />
                 </View>
             </View>

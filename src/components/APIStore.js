@@ -1,4 +1,6 @@
 // @flow
+import * as _ from "lodash";
+
 const data = require("./data");
 
 export type Picture = {
@@ -8,32 +10,35 @@ export type Picture = {
 
 export type Profile = {
     picture: Picture,
-    cover: Picture,
     name: string,
     outline: string
 };
 
 export type Post = {
+    uid: string,
     id: string,
+    likes: number,
+    comments: number,
     timestamp: number,
-    name: string,
-    profilePicture: Picture,
     text: string,
-    picture?: Picture,
-    video?: string
+    picture: Picture
 };
 
 export type Comment = {
     id: string,
     text: string,
-    name: string,
-    picture: Picture
+    uid: string,
+    timestamp: number
 };
 
 export default class APIStore {
 
-    static profile(): Profile {
-        return data.profile;
+    static me(): string {
+        return "09003f2b-a0f5-4b6a-b66a-d3446df71728";
+    }
+
+    static profile(uid: string): Profile {
+        return data.users[uid];
     }
 
     static posts(): Post[] {
@@ -48,7 +53,7 @@ export default class APIStore {
         if (!data.comments[post]) {
             data.comments[post] = [];
         }
-        return data.comments[post];
+        return _.sortBy(data.comments[post], ["timestamp"]).reverse();
     }
 
     static addComment(post: string, comment: Comment) {

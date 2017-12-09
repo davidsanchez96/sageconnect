@@ -2,7 +2,7 @@
 import * as React from "react";
 import {StyleSheet, View, Platform} from "react-native";
 
-import {Text, Avatar, Theme} from "../../components";
+import {Text, Avatar, Theme, APIStore} from "../../components";
 import type {Comment} from "../../components/APIStore";
 
 type CommentProps = {
@@ -12,7 +12,8 @@ type CommentProps = {
 export default class CommentComp extends React.Component<CommentProps> {
 
     render(): React.Node {
-        const {name, text, picture} = this.props.comment;
+        const {text, uid} = this.props.comment;
+        const {picture, name} = APIStore.profile(uid);
         return (
             <View style={styles.container}>
                 <Avatar {...picture} />

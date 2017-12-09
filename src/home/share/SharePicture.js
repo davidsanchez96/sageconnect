@@ -28,8 +28,8 @@ const previewParams = (width: number, height: number) => ({
         height
     },
     displaySize: {
-        width: 50,
-        height: 50
+        width: 20,
+        height: 20
     },
     resizeMode: "cover"
 });
@@ -60,11 +60,13 @@ export default class SharePicture extends React.Component<ScreenParams<Picture>,
         const picture = navigation.state.params;
         this.setState({ loading: true });
         const preview = await SharePicture.buildPreview(picture);
+        const uid = APIStore.me();
         APIStore.addPost({
             id: id(),
+            uid,
             timestamp: parseInt(moment().format("X"), 10),
-            name: "John Doe",
-            profilePicture: APIStore.profile().picture,
+            likes: 0,
+            comments: 0,
             text: caption,
             picture: {
                 uri: picture.uri,

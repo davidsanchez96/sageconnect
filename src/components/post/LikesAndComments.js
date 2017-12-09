@@ -8,12 +8,13 @@ import {Feather as Icon} from "@expo/vector-icons";
 
 import Text from "../Text";
 import {Theme} from "../Theme";
-import APIStore from "../APIStore";
 
 import type {NavigationProps} from "../Types";
 
 type LikesAndCommentsProps = NavigationProps<> & {
     id: string,
+    comments: number,
+    likes: number,
     color: string
 };
 
@@ -26,16 +27,15 @@ export default class LikesAndComments extends React.Component<LikesAndCommentsPr
     }
 
     render(): React.Node {
-        const {id, color} = this.props;
-        const comments = APIStore.comments(id);
+        const {comments, likes, color} = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.content}>
-                    <Likes {...{color}} />
+                    <Likes {...{color, likes}} />
                     <TouchableWithoutFeedback onPress={this.goToComments}>
                         <View style={styles.comments}>
                             <Icon name="message-circle" size={18} {...{color}} />
-                            <Text style={[styles.commentCount, { color }]}>{`${comments.length}`}</Text>
+                            <Text style={[styles.commentCount, { color }]}>{`${comments}`}</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
