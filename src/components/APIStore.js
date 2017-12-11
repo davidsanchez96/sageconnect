@@ -42,7 +42,7 @@ export default class APIStore {
     }
 
     static posts(): Post[] {
-        return data.posts;
+        return _.sortBy(data.posts, ["timestamp"]).reverse();
     }
 
     static addPost(post: Post) {
