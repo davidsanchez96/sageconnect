@@ -76,6 +76,6 @@ export default class APIStore {
             data.comments[post] = [];
         }
         APIStore.post(post).comments++;
-        data.comments[post].push(comment);
+        data.comments[post].unshift(comment);
     }
 }
