@@ -42,7 +42,7 @@ export default class APIStore {
     }
 
     static posts(): Post[] {
-        return data.posts;
+        return _.sortBy(data.posts, ["timestamp"]).reverse();
     }
 
     static addPost(post: Post) {
@@ -76,6 +76,6 @@ export default class APIStore {
             data.comments[post] = [];
         }
         APIStore.post(post).comments++;
-        data.comments[post].unshift(comment);
+        data.comments[post].push(comment);
     }
 }
