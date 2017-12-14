@@ -11,3 +11,6 @@ This project has been rewritten using es6 with flow annotations for type checkin
 Fiber can easily be customized and is built on with NativeBase and react-navigation.
 
 With the [expo client](https://expo.io/tools#mobile), you can try the starter kit by using this [link](https://expo.io/@wcandillon/react-native-fiber).
+
+There is a version of Fiber with Firebase support available [here](https://react-native.shop/#fiber).
+And you can check it out using expo [here](https://expo.io/@wcandillon/react-native-fiber-firebase).

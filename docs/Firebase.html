@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Installation · React Native Fiber</title>
+        <title>Firebase Support · React Native Fiber</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Firebase.html" />
+    <link rel="next" href="Packages.html" />
     
     
-    <link rel="prev" href="Technologies.html" />
+    <link rel="prev" href="Installation.html" />
     
 
     </head>
@@ -141,7 +141,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="Installation.html">
+        <li class="chapter " data-level="1.5" data-path="Installation.html">
             
                 <a href="Installation.html">
             
@@ -154,7 +154,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="Firebase.html">
+        <li class="chapter active" data-level="1.6" data-path="Firebase.html">
             
                 <a href="Firebase.html">
             
@@ -236,7 +236,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Installation</a>
+        <a href="." >Firebase Support</a>
     </h1>
 </div>
 
@@ -251,62 +251,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="prerequisites">Prerequisites</h1>
-<ul>
-<li>NodeJS &gt;= 6</li>
-<li>NPM or Yarn</li>
-</ul>
-<p>This version has been tested with Node <code>v8.1.2</code> and NPM <code>4.6.1</code> as well as NPM <code>5.3.0</code>.</p>
-<h1 id="installation">Installation</h1>
-<ul>
-<li><strong>Opt #1. Download ZIP</strong></li>
-</ul>
-<p>Not familiar with Git? Download the Full Version of the theme.
-Extract the contents of ZIP file after downloading.
-Downloading ZIP file does not help you to sync with further updates of the App.</p>
-<ul>
-<li><strong>Opt #2. Clone using GitStrap Web Client</strong></li>
-</ul>
-<p>To setup the Full Version for the App on your system, with gitstrap tools to sync your app with constant updates, clone the repo.</p>
-<ul>
-<li>Install packages for Full Version</li>
-</ul>
-<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> App
-yarn
+                                <h1 id="firebase-support">Firebase Support</h1>
+<p>There is a version of Fiber with Firebase support available <a href="https://react-native.shop/#fiber" target="_blank">here</a>.
+And you can check it out using expo <a href="https://expo.io/@wcandillon/react-native-fiber-firebase" target="_blank">here</a>.
+In this guide, we aim to guide you in setting up the app under your own firebase account and updating the backend of the app.
+If you don&apos;t have one, you can create a firebase account <a href="https://console.firebase.google.com" target="_blank">here</a>.</p>
+<h2 id="using-your-own-firebase-account">Using your own Firebase account</h2>
+<p>To use your own Firebase account for this account, please create a new project and enable email/password authentication.
+To enable email/password authentication, go to <code>Authentication</code> from the left menu, then go to <code>Sign-in Methods</code> and enable the Email/password field.
+<img src="images/firebase/enable-email-notifications.png" width="300"></p>
+<p>From there you can go to <code>settings -&gt; Add Firebase to your web app</code> and copy the given code snippet in <code>src/components/Firebase.js</code>.
+This is how the beginning of the file looks like:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// @flow</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> firebase <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;firebase&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;firebase/firestore&quot;</span>;
+
+<span class="hljs-keyword">const</span> config = {
+    apiKey: <span class="hljs-string">&quot;...&quot;</span>,
+    authDomain: <span class="hljs-string">&quot;...&quot;</span>,
+    databaseURL: <span class="hljs-string">&quot;...&quot;</span>,
+    projectId: <span class="hljs-string">&quot;...&quot;</span>,
+    storageBucket: <span class="hljs-string">&quot;&quot;</span>,
+    messagingSenderId: <span class="hljs-string">&quot;...&quot;</span>
+};
 </code></pre>
-<ul>
-<li><strong>To simulate for iOS</strong><ul>
-<li>Method One:<ul>
-<li>Run <code>npm start</code> in your terminal.</li>
-<li>Scan the QR code in your Expo App.</li>
-</ul>
-</li>
-<li>Method Two:<ul>
-<li>Type npm run ios in your terminal.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>To simulate for Android</strong><ul>
-<li>Method One:<ul>
-<li>Run <code>npm start</code> in your terminal.</li>
-<li>Scan the QR code in your Expo App.</li>
-</ul>
-</li>
-<li>Method Two:<ul>
-<li>Make sure you have an Android emulator installed and running.</li>
-<li>Type npm <code>run android</code> in your terminal.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="seed-project">Seed Project</h2>
-<p>Once you are ready to use this template for your own project, you might want to remove some screens.
-The entry point of the app is <code>App.js</code>, this file contains all the screens of the app organized into navigation routes.
-Once you removed the unnecessary routes, you can remove the folder that correspond to the screens you would like to remove.
-For instance, if you would like to remove the Overview screen, you need to remove its references from <code>App.js</code> and remove the <code>src/overview</code> folder.
-It&apos;s that simple.</p>
+<p>You also need to enable the Cloud Firestore database as seen in the screenshot below.</p>
+<p><img src="images/firebase/enable-cloud-firestore.png" width="300"></p>
+<p>Last step, you need to deploy the cloud function and the database index. In your project folder, run the following commands:</p>
+<pre><code>$(npm bin)/firebase login
+$(npm bin)/firebase deploy
+</code></pre><p>Et voil&#xE0;! You are up and running with your own Firebase backend.</p>
 
                                 
                                 </section>
@@ -334,12 +308,12 @@ It&apos;s that simple.</p>
 
             
                 
-                <a href="Technologies.html" class="navigation navigation-prev " aria-label="Previous page: Technologies">
+                <a href="Installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Firebase.html" class="navigation navigation-next " aria-label="Next page: Firebase Support">
+                <a href="Packages.html" class="navigation navigation-next " aria-label="Next page: Packages">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -350,7 +324,7 @@ It&apos;s that simple.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Installation","level":"1.5","depth":1,"next":{"title":"Firebase Support","level":"1.6","depth":1,"path":"Firebase.md","ref":"Firebase.md","articles":[]},"previous":{"title":"Technologies","level":"1.4","depth":1,"path":"Technologies.md","ref":"Technologies.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Native Fiber","gitbook":"*"},"file":{"path":"Installation.md","mtime":"2017-12-04T20:21:32.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-11T11:59:26.570Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Firebase Support","level":"1.6","depth":1,"next":{"title":"Packages","level":"1.7","depth":1,"path":"Packages.md","ref":"Packages.md","articles":[]},"previous":{"title":"Installation","level":"1.5","depth":1,"path":"Installation.md","ref":"Installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Native Fiber","gitbook":"*"},"file":{"path":"Firebase.md","mtime":"2017-12-11T11:59:10.122Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-11T11:59:26.570Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
