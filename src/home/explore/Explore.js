@@ -2,7 +2,9 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import moment from "moment"
-import {FlatList, StyleSheet, View, Animated, SafeAreaView, RefreshControl, Platform} from "react-native";
+import {
+    FlatList, StyleSheet, View, Animated, SafeAreaView, RefreshControl, Platform, TouchableWithoutFeedback
+} from "react-native";
 import {Constants} from "expo";
 
 import {Text, APIStore, Theme, Avatar, RefreshIndicator, Post} from "../../components";
@@ -20,6 +22,11 @@ type ExploreState = {
 };
 
 export default class Explore extends React.Component<ScreenProps<>, ExploreState> {
+
+    @autobind
+    profile() {
+        this.props.navigation.navigate("Profile");
+    }
 
     @autobind
     onRefresh() {
@@ -85,7 +92,11 @@ export default class Explore extends React.Component<ScreenProps<>, ExploreState
                             {moment().format("dddd")}
                             </AnimatedText>
                         </View>
-                        <Avatar {...profile.picture} />
+                        <TouchableWithoutFeedback onPress={this.profile}>
+                            <View>
+                                <Avatar {...profile.picture} />
+                            </View>
+                        </TouchableWithoutFeedback>
                     </Animated.View>
                 </AnimatedSafeAreaView>
                 <FlatList
