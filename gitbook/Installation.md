@@ -25,18 +25,16 @@ yarn
 
 * **To simulate for iOS**
     * Method One:
-        * Run `npm start` in your terminal.
-        * Scan the QR code in your Expo App.
+        * Run `yarn start` in your terminal.
+        * Scan the QR code in your Expo App or type `i`.
     * Method Two:
         * Type npm run ios in your terminal.
 * **To simulate for Android**
     * Method One:
-        * Run `npm start` in your terminal.
-        * Scan the QR code in your Expo App.
-    * Method Two:
+        * Run `yarn start` in your terminal.
         * Make sure you have an Android emulator installed and running.
-        * Type npm `run android` in your terminal.
-        
+        * Scan the QR code in your Expo App or type `a`.
+
 ## Seed Project
 
 Once you are ready to use this template for your own project, you might want to remove some screens.
