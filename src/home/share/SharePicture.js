@@ -28,8 +28,8 @@ const previewParams = (width: number, height: number) => ({
         height
     },
     displaySize: {
-        width: 50,
-        height: 50
+        width: 20,
+        height: 20
     },
     resizeMode: "cover"
 });
@@ -40,11 +40,11 @@ export default class SharePicture extends React.Component<ScreenParams<Picture>,
         this.setState({ loading: false, caption: "" });
     }
 
-    static buildPreview(picture: Picture): Promise<string> {
+    static buildPreview({ uri, width, height }: Picture): Promise<string> {
         return new Promise((resolve, reject) =>
             ImageEditor.cropImage(
-                picture.uri,
-                previewParams(picture.width, picture.height),
+                uri,
+                previewParams(width, height),
                 uri => ImageStore.getBase64ForTag(
                     uri, data => resolve(`data:image/jpeg;base64,${data}`), err => reject(err)
                 ),
@@ -60,11 +60,13 @@ export default class SharePicture extends React.Component<ScreenParams<Picture>,
         const picture = navigation.state.params;
         this.setState({ loading: true });
         const preview = await SharePicture.buildPreview(picture);
+        const uid = APIStore.me();
         APIStore.addPost({
             id: id(),
+            uid,
             timestamp: parseInt(moment().format("X"), 10),
-            name: "John Doe",
-            profilePicture: APIStore.profile().picture,
+            likes: [],
+            comments: 0,
             text: caption,
             picture: {
                 uri: picture.uri,

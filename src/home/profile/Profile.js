@@ -1,13 +1,10 @@
 // @flow
 import autobind from "autobind-decorator";
 import * as React from "react";
-import {View, StyleSheet, Dimensions, FlatList, TouchableOpacity, SafeAreaView} from "react-native";
+import {View, StyleSheet, Dimensions, FlatList, TouchableOpacity, SafeAreaView, Image} from "react-native";
 import {Feather as Icon} from "@expo/vector-icons";
 
-import Post from "../explore/Post";
-import FirstPost from "./FirstPost";
-
-import {Text, SmartImage, APIStore, Avatar, NavigationHelpers, Theme} from "../../components";
+import {Text, APIStore, Avatar, NavigationHelpers, Theme, Post, FirstPost, Images} from "../../components";
 import type {ScreenProps} from "../../components/Types";
 
 export default class Profile extends React.Component<ScreenProps<>> {
@@ -19,10 +16,10 @@ export default class Profile extends React.Component<ScreenProps<>> {
     }
 
     renderHeader(): React.Node {
-        const profile = APIStore.profile();
+        const profile = APIStore.profile(APIStore.me());
         return (
             <View style={styles.header}>
-                <SmartImage style={styles.cover} {...profile.cover} />
+                <Image style={styles.cover} source={Images.cover} />
                 <SafeAreaView style={styles.logout}>
                     <TouchableOpacity onPress={this.logout}>
                         <View>
@@ -43,8 +40,8 @@ export default class Profile extends React.Component<ScreenProps<>> {
 
     render(): React.Node {
         const {navigation} = this.props;
-        const profile = APIStore.profile();
-        const posts = APIStore.posts().filter(post => post.name === profile.name);
+        const uid = APIStore.me();
+        const posts = APIStore.posts().filter(post => post.uid === uid);
         return (
             <View style={styles.container}>
                 <FlatList
@@ -57,7 +54,11 @@ export default class Profile extends React.Component<ScreenProps<>> {
                             <Post post={item} {...{navigation}} />
                         </View>
                     )}
-                    ListEmptyComponent={<FirstPost {...{navigation}} />}
+                    ListEmptyComponent={(
+                        <View style={styles.post}>
+                            <FirstPost {...{navigation}} />
+                        </View>
+                    )}
                     ListHeaderComponent={this.renderHeader()}
                 />
             </View>

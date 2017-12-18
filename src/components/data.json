@@ -1,25 +1,43 @@
 {
-    "profile": {
-        "name": "John Doe",
-        "outline": "Framer & React Native",
-        "picture": {
-            "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Fprofile%2FJ0k2SZiI9V9KoYZK7Enru5e8CbqFxdzjkHCmzd2yZ1dyR22Vcjc0PXDPslhgH1JSEOKMMOnDcubGv8s4ZxA.jpg?alt=media&token=6d5a2309-cf94-4b8e-a405-65f8c5c6c87c",
-            "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+    "users": {
+        "09003f2b-a0f5-4b6a-b66a-d3446df71728": {
+            "name": "John Doe",
+            "outline": "React Native",
+            "picture": {
+                "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Fprofile%2FJ0k2SZiI9V9KoYZK7Enru5e8CbqFxdzjkHCmzd2yZ1dyR22Vcjc0PXDPslhgH1JSEOKMMOnDcubGv8s4ZxA.jpg?alt=media&token=6d5a2309-cf94-4b8e-a405-65f8c5c6c87c",
+                "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            }
         },
-        "cover": {
-            "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Fprofile%2F61XBIrmN4gqGp9KRwzx2tILx7UtWOd0tBhtON1lnIZ0xS7Cpa68RPm2YGpCVEKCvMpxUpGIpKcjE8x8g.jpg?alt=media&token=a31812f9-8120-4f6e-83ac-e8e176d95951",
-            "preview": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QCMRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABSgAwAEAAAAAQAAAAsAAAAA/+0AOFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/AABEIAAsAFAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2wBDAAICAgICAgMCAgMEAwMDBAUEBAQEBQcFBQUFBQcIBwcHBwcHCAgICAgICAgKCgoKCgoLCwsLCw0NDQ0NDQ0NDQ3/2wBDAQICAgMDAwYDAwYNCQcJDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ3/3QAEAAL/2gAMAwEAAhEDEQA/APXfD/x6/ZH8QPKi+OrfTBF0fWLS601JP+ubXEahvoOfattvjF+yt9rksdO8dadqc8Yztsd0ytxkhX4QkDrzxX85sF/elsfaJRkc4cjOfpUjzyyN+9bzOn3/AJun1zX7TDjao5Xbm4/4l/8AIn4ZX8K8m5LUqUVLu02vuuvzP6N4PjD+y1OpJ8cWSMp2ssiyKynrgjB9am/4W1+y1/0PVh+Un/xNfzz6Zd3BgbLfx+g9B7Vo/ap/736D/Cuh8Yx71P8AwKP/AMica8MMF/JT/wDAJf8AyZ//2Q=="
+        "aa94c4b3-e74d-45c3-889e-86c227d8dae3": {
+            "name": "Jackie Parker",
+            "outline": "Life Lover",
+            "picture": {
+                "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fjackie.jpg?alt=media&token=c4ad2626-02a7-402d-bf0c-29310b611a24",
+                "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            }
+        },
+        "09b516f2-6b5d-4764-ae5b-32e41fa3cb08": {
+            "name": "Maggie Cross",
+            "outline": "React Native",
+            "picture": {
+                "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fmaggie.png?alt=media&token=21fe02b4-445a-47d3-9f1a-520cb337abac",
+                "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAJmwx////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+            }
         }
     },
     "posts": [
         {
             "id": "24d55bd4-b66e-407f-87ba-c03d51755f0f",
+            "uid": "aa94c4b3-e74d-45c3-889e-86c227d8dae3",
             "timestamp": 1510127619,
-            "name": "Jackie Parker",
-            "profilePicture": {
-                "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fjackie.jpg?alt=media&token=c4ad2626-02a7-402d-bf0c-29310b611a24",
-                "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            },
+            "likes": [
+                "a2428f19-266f-4f73-819d-65e11a711345",
+                "4581409a-76a1-4f70-b321-b2940b6b433a",
+                "9b4c84a1-7bc0-4397-9fce-0891576feda4",
+                "cfe4ebc5-e1a8-45ca-a1db-93faece47db2",
+                "5e07bb1b-8cf8-4a22-8501-b66594ef9027"
+            ],
+            "comments": 2,
             "text": "What I love most about this crazy life is the adventure of it.",
             "picture": {
                 "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Fposts%2Fkristopher-roller-207130.jpg?alt=media&token=21e29fe9-f28e-426a-b0c5-7c1bb5a69054",
@@ -28,23 +46,26 @@
         },
         {
             "id": "88541578-5966-41d4-9e69-091c993611dc",
+            "uid": "09b516f2-6b5d-4764-ae5b-32e41fa3cb08",
             "timestamp": 1510121619,
-            "name": "Maggie Cross",
-            "profilePicture": {
-                "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fmaggie.png?alt=media&token=21fe02b4-445a-47d3-9f1a-520cb337abac",
-                "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAJmwx////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            },
+            "likes": [
+                "a2428f19-266f-4f73-819d-65e11a711345",
+                "4581409a-76a1-4f70-b321-b2940b6b433a",
+                "9b4c84a1-7bc0-4397-9fce-0891576feda4"
+            ],
+            "comments": 0,
             "text": "I think risk-taking is a great adventure. And life should be full of adventures."
         },
         {
             "id": "8f888a1d-9ff1-48be-8961-17e87fd9e3ea",
+            "uid": "aa94c4b3-e74d-45c3-889e-86c227d8dae3",
             "timestamp": 1510115619,
-            "name": "Jackie Parker",
+            "likes": [
+                "a2428f19-266f-4f73-819d-65e11a711345",
+                "4581409a-76a1-4f70-b321-b2940b6b433a"
+            ],
+            "comments": 0,
             "text": "Derek added 4 photos to his Adventure album",
-            "profilePicture": {
-                "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fjackie.jpg?alt=media&token=c4ad2626-02a7-402d-bf0c-29310b611a24",
-                "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            },
             "picture": {
                 "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Fprofile%2F61XBIrmN4gqGp9KRwzx2tILx7UtWOd0tBhtON1lnIZ0xS7Cpa68RPm2YGpCVEKCvMpxUpGIpKcjE8x8g.jpg?alt=media&token=a31812f9-8120-4f6e-83ac-e8e176d95951",
                 "preview": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QCMRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABSgAwAEAAAAAQAAAAsAAAAA/+0AOFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/AABEIAAsAFAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2wBDAAICAgICAgMCAgMEAwMDBAUEBAQEBQcFBQUFBQcIBwcHBwcHCAgICAgICAgKCgoKCgoLCwsLCw0NDQ0NDQ0NDQ3/2wBDAQICAgMDAwYDAwYNCQcJDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ3/3QAEAAL/2gAMAwEAAhEDEQA/APXfD/x6/ZH8QPKi+OrfTBF0fWLS601JP+ubXEahvoOfattvjF+yt9rksdO8dadqc8Yztsd0ytxkhX4QkDrzxX85sF/elsfaJRkc4cjOfpUjzyyN+9bzOn3/AJun1zX7TDjao5Xbm4/4l/8AIn4ZX8K8m5LUqUVLu02vuuvzP6N4PjD+y1OpJ8cWSMp2ssiyKynrgjB9am/4W1+y1/0PVh+Un/xNfzz6Zd3BgbLfx+g9B7Vo/ap/736D/Cuh8Yx71P8AwKP/AMica8MMF/JT/wDAJf8AyZ//2Q=="
@@ -56,20 +77,14 @@
             {
                 "id": "015e0d29-44e2-433a-8bfb-7994a786b95d",
                 "text": "Totally agree!",
-                "name": "Jackie Parker",
-                "picture": {
-                    "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fjackie.jpg?alt=media&token=c4ad2626-02a7-402d-bf0c-29310b611a24",
-                    "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAKyhmP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                }
+                "uid": "aa94c4b3-e74d-45c3-889e-86c227d8dae3",
+                "timestamp": 1510116619
             },
             {
                 "id": "400b9871-b70d-43b9-ae7d-bbd9368ff4ae",
                 "text": "I decided that adventure is the best way to learn about writing.",
-                "name": "Maggie Cross",
-                "picture": {
-                    "uri": "https://firebasestorage.googleapis.com/v0/b/react-native-ting.appspot.com/o/fiber%2Favatars%2Fmaggie.png?alt=media&token=21fe02b4-445a-47d3-9f1a-520cb337abac",
-                    "preview": "data:image/gif;base64,R0lGODlhAQABAPAAAJmwx////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                }
+                "uid": "09b516f2-6b5d-4764-ae5b-32e41fa3cb08",
+                "timestamp": 1510115619
             }
         ]
     }

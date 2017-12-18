@@ -2,12 +2,12 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
 import moment from "moment"
-import {FlatList, StyleSheet, View, Animated, SafeAreaView, RefreshControl, Platform} from "react-native";
+import {
+    FlatList, StyleSheet, View, Animated, SafeAreaView, RefreshControl, Platform, TouchableWithoutFeedback
+} from "react-native";
 import {Constants} from "expo";
 
-import Post from "./Post";
-
-import {Text, APIStore, Theme, Avatar, RefreshIndicator} from "../../components";
+import {Text, APIStore, Theme, Avatar, RefreshIndicator, Post} from "../../components";
 
 import type {ScreenProps} from "../../components/Types";
 import type {Post as PostModel} from "../../components/APIStore";
@@ -22,6 +22,11 @@ type ExploreState = {
 };
 
 export default class Explore extends React.Component<ScreenProps<>, ExploreState> {
+
+    @autobind
+    profile() {
+        this.props.navigation.navigate("Profile");
+    }
 
     @autobind
     onRefresh() {
@@ -41,7 +46,7 @@ export default class Explore extends React.Component<ScreenProps<>, ExploreState
         const {onRefresh} = this;
         const {navigation} = this.props;
         const {scrollAnimation, refreshing, posts} = this.state;
-        const profile = APIStore.profile();
+        const profile = APIStore.profile(APIStore.me());
         const opacity = scrollAnimation.interpolate({
             inputRange: [0, 60],
             outputRange: [1, 0]
@@ -87,7 +92,11 @@ export default class Explore extends React.Component<ScreenProps<>, ExploreState
                             {moment().format("dddd")}
                             </AnimatedText>
                         </View>
-                        <Avatar {...profile.picture} />
+                        <TouchableWithoutFeedback onPress={this.profile}>
+                            <View>
+                                <Avatar {...profile.picture} />
+                            </View>
+                        </TouchableWithoutFeedback>
                     </Animated.View>
                 </AnimatedSafeAreaView>
                 <FlatList
