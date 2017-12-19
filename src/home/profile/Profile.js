@@ -20,13 +20,13 @@ export default class Profile extends React.Component<ScreenProps<>> {
         return (
             <View style={styles.header}>
                 <Image style={styles.cover} source={Images.cover} />
-                <SafeAreaView style={styles.logout}>
+                <View style={styles.logout}>
                     <TouchableOpacity onPress={this.logout}>
                         <View>
                             <Icon name="log-out" size={25} color="white" />
                         </View>
                     </TouchableOpacity>
-                </SafeAreaView>
+                </View>
                 <View style={styles.headerContent}>
                     <View style={styles.title}>
                         <Text type="large" style={styles.outline}>{profile.outline}</Text>
@@ -43,7 +43,7 @@ export default class Profile extends React.Component<ScreenProps<>> {
         const uid = APIStore.me();
         const posts = APIStore.posts().filter(post => post.uid === uid);
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     style={styles.list}
@@ -61,7 +61,7 @@ export default class Profile extends React.Component<ScreenProps<>> {
                     )}
                     ListHeaderComponent={this.renderHeader()}
                 />
-            </View>
+            </SafeAreaView>
         );
     }
 }
