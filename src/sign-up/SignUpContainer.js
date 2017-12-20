@@ -1,9 +1,10 @@
 // @flow
 import autobind from "autobind-decorator";
 import * as React from "react";
-import {View, StyleSheet, ScrollView, KeyboardAvoidingView} from "react-native";
+import {View, StyleSheet, Dimensions} from "react-native";
+import {Content} from "native-base";
 
-import {Text, Container, Button} from "../components";
+import {Text, Container, Button, Theme} from "../components";
 import type {NavigationProps} from "../components/Types";
 
 type SignUpContainerProps = NavigationProps<*> & {
@@ -29,30 +30,24 @@ export default class SignUpContainer extends React.Component<SignUpContainerProp
         const {title, subtitle, next, children, nextLabel} = this.props;
         return (
             <Container gutter={2}>
-                <ScrollView contentContainerStyle={styles.container}>
-                    <KeyboardAvoidingView behavior="padding" style={styles.innerContainer}>
-                        <View>
-                            <Text type="large">{subtitle}</Text>
-                            <Text type="header2" gutterBottom={true}>{title}</Text>
-                        </View>
+                <Content>
+                    <View style={styles.innerContent}>
+                        <Text type="large">{subtitle}</Text>
+                        <Text type="header2" gutterBottom={true}>{title}</Text>
                         <View>{children}</View>
-                        <View>
-                            <Button label={nextLabel} full={true} primary={true} onPress={next} />
-                            <Button label="Back" full={true} onPress={this.back} />
-                        </View>
-                    </KeyboardAvoidingView>
-                </ScrollView>
+                        <Button label={nextLabel} full={true} primary={true} onPress={next} />
+                        <Button label="Back" full={true} onPress={this.back} />
+                    </View>
+                </Content>
             </Container>
         );
     }
 }
 
+const {height} = Dimensions.get("window");
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1
-    },
-    innerContainer: {
-        flexGrow: 1,
-        justifyContent: "space-between"
+    innerContent: {
+        height: height - Theme.spacing.base * 2 * 2,
+        justifyContent: "center"
     }
 });
