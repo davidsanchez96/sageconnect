@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     text: {
         flexWrap: "wrap",
         marginLeft: Theme.spacing.small,
-        textAlign: "right",
-        flexGrow: 1
+        flex: 1
     },
     row: {
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        marginVertical: Theme.spacing.tiny
     },
     header: {
         color: "white"

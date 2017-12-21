@@ -4,6 +4,7 @@ import * as React from "react";
 import {StyleProvider} from "native-base";
 import {StackNavigator, TabNavigator} from "react-navigation";
 import {Font, AppLoading} from "expo";
+import { Feather } from "@expo/vector-icons";
 
 import {Images} from "./src/components";
 import {Welcome} from "./src/welcome";
@@ -30,7 +31,8 @@ export default class App extends React.Component<{}, AppState> {
 
     async loadStaticResources(): Promise<void> {
         try {
-            await Font.loadAsync({
+            const images = Images.downloadAsync();
+            const fonts = Font.loadAsync({
                 "SFProText-Medium": require("./fonts/SF-Pro-Text-Medium.otf"),
                 "SFProText-Heavy": require("./fonts/SF-Pro-Text-Heavy.otf"),
                 "SFProText-Bold": require("./fonts/SF-Pro-Text-Bold.otf"),
@@ -38,7 +40,8 @@ export default class App extends React.Component<{}, AppState> {
                 "SFProText-Regular": require("./fonts/SF-Pro-Text-Regular.otf"),
                 "SFProText-Light": require("./fonts/SF-Pro-Text-Light.otf")
             });
-            await Images.downloadAsync();
+            const icons = Font.loadAsync(Feather.font);
+            await Promise.all([...images, fonts, icons]);
             this.setState({ ready: true });
         } catch(error) {
             // eslint-disable-next-line no-console
