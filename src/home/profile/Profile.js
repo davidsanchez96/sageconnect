@@ -1,24 +1,14 @@
 // @flow
 import autobind from "autobind-decorator";
 import * as React from "react";
-import {View, StyleSheet, Dimensions, FlatList, TouchableOpacity, Animated, Image} from "react-native";
+import {View, StyleSheet, Dimensions, FlatList, TouchableOpacity, Image} from "react-native";
 import {Constants} from "expo";
 import {Feather as Icon} from "@expo/vector-icons";
 
 import {Text, APIStore, Avatar, NavigationHelpers, Theme, Post, FirstPost, Images} from "../../components";
 import type {ScreenProps} from "../../components/Types";
 
-type ProfileState = {
-    scrollAnimation: Animated.Value
-};
-
-export default class Profile extends React.Component<ScreenProps<>, ProfileState> {
-
-    componentWillMount() {
-        this.setState({
-            scrollAnimation: new Animated.Value(0)
-        });
-    }
+export default class Profile extends React.Component<ScreenProps<>> {
 
     @autobind
     logout() {
@@ -31,46 +21,31 @@ export default class Profile extends React.Component<ScreenProps<>, ProfileState
         const uid = APIStore.me();
         const posts = APIStore.posts().filter(post => post.uid === uid);
         const profile = APIStore.profile(uid);
-        const {scrollAnimation} = this.state;
-        const height = scrollAnimation.interpolate({
-            inputRange: [0, 0, width, width],
-            outputRange: [width, width, statusBarHeight + 100, statusBarHeight + 100]
-        });
-        const opacity = scrollAnimation.interpolate({
-            inputRange: [width - 100, width - 100, width, width],
-            outputRange: [1, 1, 0, 0]
-        });
         return (
-            <View style={styles.container}>
-                <Animated.View style={[styles.header, { height } ]}>
-                    <AnimatedImage style={[styles.cover, { height }]} source={Images.cover} />
-                    <TouchableOpacity onPress={this.logout} style={styles.settings}>
-                        <View>
-                            <Icon name="log-out" size={25} color="white" />
+            <FlatList
+                bounces={false}
+                showsVerticalScrollIndicator={false}
+                style={styles.list}
+                data={posts}
+                keyExtractor={post => post.id}
+                renderItem={({ item }) => <View style={styles.post}><Post post={item} {...{navigation}} /></View>}
+                ListEmptyComponent={<View style={styles.post}><FirstPost {...{navigation}} /></View>}
+                ListHeaderComponent={(
+                    <View style={[styles.header]}>
+                        <Image style={[styles.cover]} source={Images.cover} />
+                        <TouchableOpacity onPress={this.logout} style={styles.settings}>
+                            <View>
+                                <Icon name="log-out" size={25} color="white" />
+                            </View>
+                        </TouchableOpacity>
+                        <View style={[styles.title]}>
+                            <Text type="large" style={styles.outline}>{profile.outline}</Text>
+                            <Text type="header2" style={styles.name}>{profile.name}</Text>
                         </View>
-                    </TouchableOpacity>
-                    <Animated.View style={[styles.title, { opacity }]}>
-                        <Text type="large" style={styles.outline}>{profile.outline}</Text>
-                        <Text type="header2" style={styles.name}>{profile.name}</Text>
-                    </Animated.View>
-                    <Avatar size={avatarSize} style={styles.avatar} {...profile.picture} />
-                </Animated.View>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    style={styles.list}
-                    data={posts}
-                    keyExtractor={post => post.id}
-                    renderItem={({ item }) => <Post post={item} {...{navigation}} />}
-                    ListEmptyComponent={<FirstPost {...{navigation}} />}
-                    onScroll={Animated.event([{
-                        nativeEvent: {
-                            contentOffset: {
-                                y: scrollAnimation
-                            }
-                        }
-                    }])}
-                />
-            </View>
+                        <Avatar size={avatarSize} style={styles.avatar} {...profile.picture} />
+                    </View>
+                )}
+            />
         );
     }
 }
@@ -78,21 +53,21 @@ export default class Profile extends React.Component<ScreenProps<>, ProfileState
 const avatarSize = 100;
 const {width} = Dimensions.get("window");
 const {statusBarHeight} = Constants;
-const AnimatedImage = Animated.createAnimatedComponent(Image);
 const styles = StyleSheet.create({
-    container: {
+    list: {
         flex: 1
     },
-    list: {
-        flex: 1,
+    post: {
         paddingHorizontal: Theme.spacing.small
     },
     header: {
-        marginBottom: avatarSize * 0.5 + Theme.spacing.small
+        marginBottom: avatarSize * 0.5 + Theme.spacing.small,
+        height: width
     },
     cover: {
         ...StyleSheet.absoluteFillObject,
-        width
+        width,
+        height: width
     },
     avatar: {
         position: "absolute",
